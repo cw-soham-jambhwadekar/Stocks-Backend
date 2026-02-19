@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "Contracts";
+
+package stock;
+
+service StockService {
+  rpc GetStocks (Filters) returns (StockResponse);
+}
+
+message Filters {
+  repeated string fuelNames = 1;
+  double minBudget = 2;
+  double maxBudget = 3;
+  repeated int32 makeIds = 4;
+  int32 cityId = 5;
+  int32 so = 6;
+  int32 sc = 7;
+  int32 pageNo = 8;
+}
+
+message Stock {
+string profileId = 1;
+string modelName = 2;
+int32 makeYear = 3;
+int32 makeId = 4;
+int32 cityId = 5;
+double price = 6;
+string fuel = 7;
+int32 km = 8;
+
+string makeName = 9;
+string cityName = 10;
+
+repeated string stockImages = 11;
+}
+
+message StockList {
+  repeated Stock stocks = 1;
+}
+
+message StockResponse {
+  repeated Stock stocks = 1;
+  string nextPageUrl = 2;
+}

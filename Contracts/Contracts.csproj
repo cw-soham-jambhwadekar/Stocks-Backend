@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.31.1" />
+    <PackageReference Include="Grpc.Core.Api" Version="2.76.0" />
+
+    <PackageReference Include="Grpc.Tools" Version="2.76.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\stock.proto" GrpcServices="Both" /> 
+  </ItemGroup>
+
+</Project>
