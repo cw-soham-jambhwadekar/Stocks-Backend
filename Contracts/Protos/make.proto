@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "Contracts";
+
+package make;
+
+service MakeService {
+  rpc GetMakes (MakeRequest) returns (MakeResponse);
+}
+
+message MakeRequest {}
+
+message Make {
+  int32 makeId = 1;
+  string makeName = 2;
+}
+
+message MakeResponse {
+  repeated Make makes = 1;
+}

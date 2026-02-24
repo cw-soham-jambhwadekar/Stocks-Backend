@@ -6,11 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <!-- <ItemGroup>
-    <Protobuf Include="..\Contracts\Protos\stock.proto" GrpcServices="Client" />
-  </ItemGroup> -->
-
-  <ItemGroup>  <!-- how proto is imported  -->
+  <ItemGroup>  
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
   </ItemGroup>
 

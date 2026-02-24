@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <Protobuf Include="Protos\stock.proto" GrpcServices="Both" /> 
+    <Protobuf Include="Protos\make.proto" GrpcServices="Both" />
+    <Protobuf Include="Protos\city.proto" GrpcServices="Both" />
   </ItemGroup>
 
 </Project>

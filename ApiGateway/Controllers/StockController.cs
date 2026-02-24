@@ -1,23 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/stocks")]
 public class StockController : ControllerBase
 {
-    private readonly StockClient _client;
+    private readonly IStockLogic _stockLogic;
 
-    public StockController(StockClient client)
+    public StockController(IStockLogic stockLogic)
     {
-        _client = client;
+        _stockLogic = stockLogic;
     }
 
-    [HttpGet]
+    [HttpGet("api/stocks")]
     public async Task<IActionResult> GetStocks(
-        [FromQuery] FiltersDto dto,
-        [FromServices] IFiltersTranslator translator)
+        [FromQuery] FiltersDto filtersDto)
     {
-        var filters = translator.Translate(dto);
-        var result = await _client.GetStocksAsync(filters);
-        return Ok(result);
+        try
+        {
+            var result = await _stockLogic.GetStocksAsync(filtersDto);
+            return Ok(result);
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { error = ex.Message });
+        }
     }
+
 }

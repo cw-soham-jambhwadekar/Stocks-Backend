@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "Contracts";
+
+package city;
+
+service CityService {
+  rpc GetCities (CityRequest) returns (CityResponse);
+}
+
+message CityRequest {}
+
+message City {
+  int32 cityId = 1;
+  string cityName = 2;
+}
+
+message CityResponse {
+  repeated City cities = 1;
+}
